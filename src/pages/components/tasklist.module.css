@@ -1,0 +1,103 @@
+tr.hover:hover {
+    background-color: #ddd;
+  }
+
+  #tasklist {
+    font-family: arial, sans-serif;
+    font-size: large;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    width: 800px;
+  }
+  
+  #tasklist th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #008b8b;
+    color: white;
+  }
+  
+  td.solid,
+  th.solid {
+    border: 1px solid #008b8b;
+    padding: 8px;
+  }
+  
+  #done {
+    color: rgb(31, 119, 31);
+    margin-right: 5px;
+    border-color: rgb(31, 119, 31);
+  }
+  
+  #done:hover {
+    background-color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 4px #111;
+    transition: 0.3s;
+  }
+  
+  #edit {
+    color: rgba(39, 39, 39, 0.623);
+    float: right;
+    margin-right: 5px;
+    border-color: rgba(39, 39, 39, 0.623);
+  }
+  
+  #edit:hover {
+    background-color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 4px #111;
+    transition: 0.3s;
+  }
+  
+  #delete:hover {
+    background-color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 4px #111;
+    transition: 0.3s;
+  }
+  #delete {
+    color: rgb(180, 60, 60);
+    float: right;
+    border-color: rgb(180, 60, 60);
+  }
+  
+  #archive:hover {
+    background-color: white;
+    transform: scale(1.2);
+    box-shadow: 0 0 4px #111;
+    transition: 0.3s;
+  }
+  #archive {
+    color: rgba(128, 0, 128, 0.651);
+    float: right;
+    margin-right: 5px;
+    border-color: rgba(128, 0, 128, 0.651);
+  }
+  .fa {
+    width: 34px;
+    height: 34px;
+    border-radius: 15px;
+    border: 2px solid;
+  }
+  
+  .hide {
+    padding-left: 43px;
+  }
+  
+  .donebutton {
+    margin-left: 10px;
+    border-radius: 12px;
+    background-color: #008b8b;
+    border: none;
+    padding: 4px 7px;
+    color: white;
+  }
+  
+  .emptyList {
+    padding-top: 30px;
+    font-size: 30px;
+    text-align: center;
+  }

@@ -1,7 +1,9 @@
 import { useState } from "react";
 import tscss from "./tasklist.module.css"
+import TaskRow from "./taskRow";
+import Itask from "./Itask";
 
-const taskArray:string[] = [];
+const taskArray:Itask[] = [];
 
 const Tasklist = () => {
     const [tasks, settasks] = useState(taskArray)
@@ -9,11 +11,17 @@ const Tasklist = () => {
     const addTask = () => {
       settasks([
         ...tasks, 
-        "hello"
+        {
+          done: false,
+          nameOfTask: "hello",
+          delete: false,
+          archive: false,
+        }
       ]);
     };
 
     return (
+      <div>
         <table id={tscss.tasklist}>
         <thead>
         <tr className={tscss.hover}>
@@ -21,26 +29,17 @@ const Tasklist = () => {
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td>
-            {/* <button id={tscss.done} className="fa fa-check" ></button> */}
-            {tasks.map((t) => (
-            <p>{t}</p>
+          {tasks.map((h) => (
+          <TaskRow key={h.nameOfTask} task={h}/>
           ))}
-            {/* <button id={tscss.delete} className="fa fa-trash"></button>
-            <button id={tscss.archive} className="fa fa-archive"></button>
-            <button id={tscss.edit} className="fa fa-pencil"></button> */}
-    
-            <div>
-              {/* <!-- add a model for your input so on the text box it shoes something.. google model for input  --> */}
-              <input type="text" contentEditable="true" /> 
-              
-              <button onClick={addTask} className={tscss.donebutton}>Done</button>
-            </div>
-          </td>
-        </tr>
         </tbody>
       </table>
+      <div>
+            {/* <!-- add a model for your input so on the text box it shoes something.. google model for input  --> */}
+            <input type="text" contentEditable="true" />
+            <button onClick={addTask} className={tscss.donebutton}>Done</button>
+          </div>
+      </div>
     )
 };
 

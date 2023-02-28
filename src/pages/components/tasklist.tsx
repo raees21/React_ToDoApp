@@ -3,18 +3,9 @@ import tscss from "./tasklist.module.css"
 import TaskRow from "./taskRow";
 import Itask from "./Itask";
 
-const taskArray:Itask[] = [];
-
-const singleTask:Itask = {
-  done: false,
-  nameOfTask: "",
-  delete: false,
-  archive: false,
-};
-
-const Tasklist = () => {
-    const [tasks, settasks] = useState(taskArray)
-    const [sTask, setsingleTask] = useState(singleTask)
+const Tasklist = (props: {taskArray:Itask[], singleTask:Itask}) => {
+    const [tasks, settasks] = useState(props.taskArray)
+    const [sTask, setsingleTask] = useState(props.singleTask)
 
     const addTask = () => {
       settasks([

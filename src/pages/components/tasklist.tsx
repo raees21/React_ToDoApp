@@ -5,28 +5,35 @@ import Itask from "./Itask";
 
 const taskArray:Itask[] = [];
 
+const singleTask:Itask = {
+  done: false,
+  nameOfTask: "",
+  delete: false,
+  archive: false,
+};
+
 const Tasklist = () => {
     const [tasks, settasks] = useState(taskArray)
+    const [sTask, setsingleTask] = useState(singleTask)
 
     const addTask = () => {
       settasks([
         ...tasks, 
-        {
-          done: false,
-          nameOfTask: "hello",
-          delete: false,
-          archive: false,
-        }
+        sTask
       ]);
     };
+
+    const changeHandler = (event: React.ChangeEvent<HTMLInputElement>) => {
+      setsingleTask({ ...sTask, [event.currentTarget.name]: event.currentTarget.value })
+    }
 
     return (
       <div>
         <table id={tscss.tasklist}>
         <thead>
-        <tr className={tscss.hover}>
-          <th>Active Task List</th>
-        </tr>
+          <tr className={tscss.hover}>
+            <th>Active Task List</th>
+          </tr>
         </thead>
         <tbody>
           {tasks.map((h) => (
@@ -34,10 +41,9 @@ const Tasklist = () => {
           ))}
         </tbody>
       </table>
-      <div>
-            {/* <!-- add a model for your input so on the text box it shoes something.. google model for input  --> */}
-            <input type="text" contentEditable="true" />
-            <button onClick={addTask} className={tscss.donebutton}>Done</button>
+      <div id={tscss.tasklist}>
+            <input type="text" contentEditable="true" name="nameOfTask" placeholder="Enter Task" onChange={changeHandler}/>
+            <button onClick={addTask} className={tscss.donebutton} >Add</button>
           </div>
       </div>
     )

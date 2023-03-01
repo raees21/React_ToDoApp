@@ -9,6 +9,12 @@ const ComponentPicker = (props: { currentNav: any; taskArray: Itask[]; singleTas
             return <Tasklist taskArray={props.taskArray} singleTask={props.singleTask}/>
         case NavValues.deleted:
             return <Deleted/>
+        default:
+            return (
+                <h3>
+                    No Component Found
+                </h3>
+            )
     }
 }
 

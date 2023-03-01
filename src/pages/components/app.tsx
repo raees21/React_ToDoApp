@@ -5,6 +5,7 @@ import Itask from "./Itask";
 import NavValues from "@/helpers/navValues";
 import React, { useCallback, useState } from "react";
 import INAV from "./INav";
+import ComponentPicker from "./componentPicker";
 
 const navigationContext = React.createContext<INAV>({current: NavValues.app, navigate: () => void{}});
 
@@ -27,7 +28,8 @@ const App = () => {
     return(
         <navigationContext.Provider value={nav}>
             <Navbar/>
-            <TaskList taskArray={taskArray} singleTask={singleTask}/>
+            <ComponentPicker currentNav={nav.current} taskArray={taskArray} singleTask={singleTask}/>
+            {/* <TaskList taskArray={taskArray} singleTask={singleTask}/> */}
             {/* <Deleted/> */}
         </navigationContext.Provider>
         

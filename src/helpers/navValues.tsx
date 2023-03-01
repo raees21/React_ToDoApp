@@ -1,6 +1,6 @@
 const NavValues = {
     app: "App",
-    tasklist: "Tasklist",
+    deleted: "Deleted",
 }
 
 export default NavValues;

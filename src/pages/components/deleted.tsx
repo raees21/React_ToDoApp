@@ -1,6 +1,6 @@
 const Deleted = () => {
     return (
-        
+        <p>deleted</p>
     )
     
 };

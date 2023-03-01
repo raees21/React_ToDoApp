@@ -2,6 +2,11 @@ import TaskList from "./tasklist";
 import Navbar from "./navbar"
 import Deleted from "./deleted";
 import Itask from "./Itask";
+import NavValues from "@/helpers/navValues";
+import React, { useCallback, useState } from "react";
+import INAV from "./INav";
+
+const navigationContext = React.createContext<INAV>({current: NavValues.app, navigate: () => void{}});
 
 const taskArray:Itask[] = [];
 
@@ -13,12 +18,18 @@ const singleTask:Itask = {
 };
 
 const App = () => {
+    const navigate = useCallback(
+        (navTo:string) => setNav({current:navTo, navigate}), []
+    );
+
+    const [nav , setNav] = useState({current: NavValues.app, navigate})
+
     return(
-        <>
+        <navigationContext.Provider value={nav}>
             <Navbar/>
             <TaskList taskArray={taskArray} singleTask={singleTask}/>
             {/* <Deleted/> */}
-        </>
+        </navigationContext.Provider>
         
     );
 };

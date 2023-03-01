@@ -27,8 +27,8 @@ const Tasklist = (props: {taskArray:Itask[], singleTask:Itask}) => {
           </tr>
         </thead>
         <tbody>
-          {tasks.map((h) => (
-          <TaskRow key={h.nameOfTask} task={h}/>
+          {tasks.map((task) => (
+          <TaskRow key={task.nameOfTask} task={task}/>
           ))}
         </tbody>
       </table>

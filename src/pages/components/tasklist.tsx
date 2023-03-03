@@ -1,11 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import tscss from "./tasklist.module.css"
 import TaskRow from "./taskRow";
 import Itask from "./Itask";
+import { navigationContext } from "./app";
+import NavValues from "@/helpers/navValues";
 
 const Tasklist = (props: {taskArray:Itask[], singleTask:Itask}) => {
     const [tasks, settasks] = useState(props.taskArray)
     const [sTask, setsingleTask] = useState(props.singleTask)
+    const { navigate } = useContext(navigationContext);
 
     const addTask = () => {
       settasks([
@@ -20,6 +23,7 @@ const Tasklist = (props: {taskArray:Itask[], singleTask:Itask}) => {
 
     return (
       <div>
+        <button onClick={() => navigate(NavValues.deleted)} className={tscss.donebutton} >Deleted</button>
         <table id={tscss.tasklist}>
         <thead>
           <tr className={tscss.hover}>

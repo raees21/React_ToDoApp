@@ -1,6 +1,4 @@
-import TaskList from "./tasklist";
 import Navbar from "./navbar"
-import Deleted from "./deleted";
 import Itask from "./Itask";
 import NavValues from "@/helpers/navValues";
 import React, { useCallback, useState } from "react";
@@ -29,11 +27,10 @@ const App = () => {
         <navigationContext.Provider value={nav}>
             <Navbar/>
             <ComponentPicker currentNav={nav.current} taskArray={taskArray} singleTask={singleTask}/>
-            {/* <TaskList taskArray={taskArray} singleTask={singleTask}/> */}
-            {/* <Deleted/> */}
         </navigationContext.Provider>
         
     );
 };
 
+export {navigationContext};
 export default App;

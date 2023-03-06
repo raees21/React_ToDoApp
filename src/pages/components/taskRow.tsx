@@ -15,12 +15,17 @@ const TaskRow = (props: {task:Itask}) => {
         setDone(!done);
     };
 
+    const crossLine = (event: { target: any; }) => {
+        const element = event.target;
+        element.classList.toggle("crossed-line");
+    };
+
     return (
         <tr>
             <td>
                 <button id={tscss.done} className="fa fa-check" onClick={completeTask}></button>
                 <p>{taskName}</p>
-                <p>{done.toString()}</p>
+                <p>{done.toString()} onClick={crossLine}</p>
                 <button id={tscss.delete} className="fa fa-trash"></button>
                 <button id={tscss.archive} className="fa fa-archive"></button>
                 {/* <button id={tscss.edit} className="fa fa-pencil"></button> */}
